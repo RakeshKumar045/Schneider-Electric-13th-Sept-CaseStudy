@@ -1,0 +1,82 @@
+My Solution and my Observation :
+Right-Sizing Inventory for a Component Plant
+Supply Chain Data Science  |  24-hour take-home  |  AI tools permitted
+Read this first
+Using AI tools (Claude Code, Cursor, ChatGPT, Copilot, etc.) is encouraged. We are not testing whether you can type code — we evaluate your judgment, problem-framing, and the decisions you make and defend. You must be able to explain and justify every choice in a 30-minute live discussion.
+Time budget: 24 hours from receipt. We expect 3–5 focused hours of work — not a perfect solution, but clear thinking.
+1. The scenario
+You have joined the supply chain data science team at a manufacturer of electrical protection products. A single plant purchases and stocks roughly 200 components (circuit-breaker sub-assemblies) used on the assembly line.
+Leadership has a complaint that sounds contradictory: “We have too much cash tied up in inventory, AND we still run out of parts too often.” Both things are true at once, and nobody can explain why.
+You have been handed roughly two years of weekly history for these components. Your job is to diagnose what is going wrong, forecast demand, recommend an inventory policy, and quantify the business impact — in 24 hours.
+2. What you get
+A single data file: component_demand_history.csv (~20,800 rows, 200 SKUs, weekly, 2 years).
+Heads-up: this is real-world-style data. It is not clean, not perfectly formatted, and some columns may not be safe or sensible to use as-is. Part of the test is what you notice.
+Data dictionary
+Column
+Description
+week_start_date
+Monday of the demand week (ISO date)
+sku_id
+Component identifier (e.g., CB-1042)
+product_family
+Component family (Molded Case, Trip Unit, Terminal Block, Contact Assembly)
+demand_qty
+Units consumed by the line that week (the quantity of interest)
+future_4wk_avg_demand
+A pre-computed convenience column supplied by the source system
+unit_cost
+Purchase cost per unit (local currency)
+on_hand_qty
+Units physically in stock at week end
+supplier_id
+Supplier fulfilling the component that week
+lead_time_days
+Replenishment lead time from that supplier
+stockout_flag
+1 if demand could not be fully met that week, else 0
+We deliberately give you the raw file only. Interpreting, validating, and cleaning it is part of the exercise.
+3. What we want you to do
+Understand & clean the data. Explain what the data tells you and what problems you found and handled.
+Diagnose. Explain the “too much inventory AND too many stockouts” paradox using the data. Not all SKUs behave the same way.
+Forecast demand. Produce a demand forecast for the components. Justify your method(s) — one size does not fit all here.
+Recommend an inventory policy. Translate your forecast into an actionable policy (e.g., safety stock, reorder point, target service level). State your assumptions.
+Quantify the impact. Estimate the business value of your recommendation — inventory $ reduction and/or service-level improvement. Make it credible, not precise-to-the-decimal.
+4. What to submit
+Your code / notebook — any language or tool. Readable and reproducible.
+A 1–2 page written summary for a non-technical supply chain leader: what is wrong, what you recommend, and the expected impact.
+An “assumptions & next steps” note — what you assumed, what you would do with more time or more data.
+Submit as a single zip or a shared repo link within 24 hours. Please do not spend more than one working evening on this.
+5. How we evaluate you
+We score reasoning far more than raw modelling. Approximate weighting:
+Dimension
+Weight
+What strong looks like
+Problem framing & assumptions
+20%
+Restates the problem; makes explicit, defensible assumptions
+Data diagnosis
+20%
+Catches data-quality issues and demand behaviours that matter
+Method appropriateness
+20%
+Right technique for the right type of SKU; not one model for all
+Business recommendation & $ impact
+25%
+Clear policy; quantified inventory-vs-service trade-off; leader-ready
+Communication & defensibility
+15%
+Clear 1-pager; defends every choice in the live discussion
+A polished model that ignores the business question will score lower than a simple model with sharp reasoning and a credible recommendation.
+6. The live discussion (30 minutes)
+Shortlisted candidates join a 30-minute call to walk us through their thinking. Expect questions such as:
+“Why did you clean this field this way?”
+“This SKU has mostly zero-demand weeks — why did you choose this forecasting method for it?”
+“Did you use every column? Why or why not?”
+“Something changes partway through one SKU’s history — did you notice, and how did you handle it?”
+“If this had to run on 20,000 SKUs and refresh weekly, what would change?”
+7. Ground rules
+AI tools are allowed and encouraged — but you own every decision and must defend it.
+There is no single “correct” answer. We reward clear thinking and honest assumptions.
+If something is ambiguous, state your assumption and proceed — do not wait to ask.
+Keep it focused. We would rather see 80% of the problem solved well than 100% solved sloppily.
+Good luck — we are looking forward to how you think.
